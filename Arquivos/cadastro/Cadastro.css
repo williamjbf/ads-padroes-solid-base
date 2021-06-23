@@ -144,3 +144,32 @@ form {
     background: #EAEAEA;
     padding-left: 10px;
 }
+th{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #88aaa869;
+    font-weight: bold;
+}
+
+tr{
+    text-align: center;
+    font-weight: bold;
+}
+table{
+    margin: auto;
+}
+.icons{
+    width: 24px;
+    display: flex;
+}
+.img-m{
+    width: 30px;
+    
+}
+.modal-body{
+    line-height:30px
+}
+
+td{
+    line-height: 24px;
+    vertical-align: middle;
+}
