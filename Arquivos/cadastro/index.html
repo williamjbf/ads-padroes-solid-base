@@ -1,34 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../CSSreset.css">
     <link rel="stylesheet" href="Cadastro.css">
-    <title>Amigo Secreto Loopis</title>
+    <link rel="preload" href="Cadastro.css">
+   <title> Amigo Secreto Loopis</title> 
 </head>
+
 <body>
 
-    <header>         <h1> Amigo Secreto Loopis </h1>     </header>
+    <header>
+        <h1> Amigo Secreto Loopis </h1>
+    </header>
 
     <div class="formulario">
-    <form>
-        <label for="fname">Nome</label><br>
-        <input type="text" class=" text-box" name="nome" placeholder="Insira seu Nome"><br>
-        <label for="femail">E-mail</label><br>
-        <input type="email" class=" text-box" name="email" placeholder="Insira seu E-mail"><br>
-        <input type="submit" class="botoes"value="Cadastrar">
-        <input type="button" class="botoes" value="Lista de Cadastrados">
-      </form>
+        <form>
+            <label for="fname">Nome</label><br>
+            <input type="text" class=" text-box" name="nome" placeholder="Insira seu Nome"><br>
+            <label for="femail">E-mail</label><br>
+            <input type="email" class=" text-box" name="email" placeholder="Insira seu E-mail"><br>
+            <input type="button" class="btn" value="Cadastrar" id="modal-cadastro" onclick="openModal('cadastro-modal')">
+            <input type="button" class="btn" value="Lista de Cadastrados" id="modal-cadastrados" onclick="openModal('cadastrados-modal')">
+        </form>
 
-      <img class="image-cadastro" src="imagens/imagem-cadastro.jpg" alt="Pessoas Festejando">
-    
+        <img class="image-cadastro" src="imagens/imagem-cadastro.jpg" alt="Pessoas Festejando">
+
     </div>
 
+    <div id="cadastro-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <span class="close" id="closeModal">&times;</span>
+           <h3 class="modal-title">AMIGO SECRETO LOOPIS</h3>
+            </div>
+            <div class="modal-body">
+                <p>Cadastro realizado com sucesso</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn"  onclick="closeModal('cadastro-modal')">Retornar</button>
+            </div>
+
+        </div>
+    </div>
     
+    <div id="cadastrados-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <span class="close" id="closeModal">&times;</span>
+           <h3 class="modal-title">AMIGO SECRETO LOOPIS</h3>
+            </div>
+            <div class="modal-body">
+                <p>Veja a lista de cadastrados:</p>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn"  onclick="closeModal('cadastrados-modal')">Retornar</button>
+            </div>
+
+        </div>
+    </div>
 
 
 
+
+    <script src="../scripts.js"></script>
 </body>
+
 </html>
