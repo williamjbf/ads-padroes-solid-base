@@ -106,7 +106,8 @@ form {
 
 .modal-header,
 .modal-body,
-.modal-footer {
+.modal-footer,
+.modal-resultado {
     padding: 10px;
     line-height: 80px;
     text-align: center;
@@ -155,4 +156,20 @@ table{
 td{
     line-height: 24px;
     vertical-align: middle;
+}
+
+.resultado{
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.modal-body-resultado{
+    text-transform: capitalize;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    font-weight: bold;
 }

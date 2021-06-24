@@ -26,9 +26,9 @@
             <input type="email" id="txtEmail" class=" text-box" name="email" placeholder="Insira seu E-mail"><br>
             <span id="mail-validation"></span>
             <input type="button" class="btn" value="Cadastrar" id="modal-cadastro"
-                onclick="openModal('cadastro-modal')">
+                onclick="add()">
             <input type="button" class="btn" value="Lista de Cadastrados" id="modal-cadastrados"
-                onclick="openModal('cadastrados-modal');add()">
+                onclick="openModal('cadastrados-modal');">
         </form>
 
         <img class="image-cadastro" src="imagens/imagem-cadastro.jpg" alt="Pessoas Festejando">
@@ -39,7 +39,7 @@
         <div class="modal-content">
             
             <div class="modal-head">
-                <span class="close" id="closeModal" onclick="closeModal('cadastro-modal')">&times;</span>
+                <span class="close" id="closeModal" onclick="closeModal('cadastro-modal');cleantext()">&times;</span>
                 <h3 class="modal-title">AMIGO SECRETO LOOPIS</h3>
             </div>
 
@@ -48,7 +48,7 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn" onclick="closeModal('cadastro-modal')">Retornar</button>
+                <button class="btn" onclick="closeModal('cadastro-modal');cleantext()">Retornar</button>
             </div>
         </div>
     </div>
@@ -75,7 +75,25 @@
             </div>
             <div class="modal-footer">
                 <button class="btn" onclick="closeModal('cadastrados-modal')">Retornar</button>
-                <input class="btn" type="submit" value="Sortear" id="btnSortear">
+                <input class="btn" type="submit" value="Sortear" id="btnSortear" onclick="closeModal('cadastrados-modal')">
+            </div>
+        </div>
+    </div>
+    <div id="resultado-modal" class="modal">
+        
+        <div class="modal-content">
+            
+            <div class="modal-head">
+                <span class="close" id="closeModal" onclick="reset()">&times;</span>
+                <h3 class="modal-title">RESULTADO DO SORTERIO</h3>
+            </div>
+
+            <div class="modal-body-resultado">
+            </div>
+            
+
+            <div class="modal-footer">
+                <button class="btn" onclick="reset()">Finalizar Sorteio</button>
             </div>
         </div>
     </div>

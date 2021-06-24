@@ -13,12 +13,22 @@ function closeModal(mn) {
 }
 let operacao = 'A';
 let usuarios;
+let resultSorteio = [];
 
 if (localStorage.getItem('usuarios')) {
     usuarios = JSON.parse(localStorage.getItem('usuarios'))
 }
 else {
     usuarios = [];
+}
+function numpar(e){
+    if (e % 2 == 0) {
+
+        return true;
+        
+    }else{
+        return false;
+    }
 }
 
 let indice_selecionado = -1;
@@ -40,10 +50,20 @@ function Adicionar() {
         nome: document.querySelector('#txtNome').value,
         email: document.querySelector('#txtEmail').value
     }
-    usuarios.push(usuario);
-    localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-    return true;
+    if(document.querySelector('#txtEmail').value == ''|| document.querySelector('#txtNome').value == '') {
+        alert('Preencha os campos')
+    }
+    else{
+        usuarios.push(usuario);
+        resultSorteio.push(usuario.nome);
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+        openModal('cadastro-modal')
+        return true;
+    }
+}
+function cleantext() {
+    document.querySelector("#txtNome").value = '';
+    document.querySelector("#txtEmail").value = '';
 }
 
 function handleEditar(e) {
@@ -120,6 +140,16 @@ function handleDeletar(e) {
 function sorteio() {
     usuarios = JSON.parse(localStorage.getItem('usuarios'))
     let max = usuarios.length
+    let sbody = document.querySelector('.modal-body-resultado');
+    let slinhas = '';
+    if(max <= 3){
+        alert("É necessário adicionar pelo menos 4 pessoas")
+        return;
+    }
+    else if(max%2 != 0){
+        alert("O numero de candidatos deve ser par")
+        return;
+    }
     let resultado = [];
     let num = 0;
     for (let i = 0; i < usuarios.length; i++) {
@@ -129,13 +159,35 @@ function sorteio() {
         }
         else {
             resultado.push(num);
+
         }
     }
-    alert(resultado)
+    for (let i = 0; i < resultado.length; i++) {
+        if(numpar(i)){
+            slinhas += `<p> ${resultSorteio[resultado[i]]} - ${resultSorteio[resultado[i+1]]}`
+        }
+    }
+    sbody.innerHTML += slinhas;
+    openModal('resultado-modal')
+    resultSorteio = [];
 }
+
 document.querySelector('#btnSortear').addEventListener('click', function (e) {
     sorteio()
 })
+
+function reset (){
+    let sbody = document.querySelector('.modal-body-resultado');
+    sbody.innerHTML = ``;
+    localStorage.clear();
+    closeModal('resultado-modal');
+    closeModal('cadastrados-modal');
+    resultSorteio = [];
+    let tbody = document.querySelector('#tblListar tbody');
+    tbody.innerHTML = ``;
+    usuarios = [];
+}
+
 let nome = document.getElementById('txtNome');
 let nameValidation = document.getElementById('name-validation');
 nome.onkeyup = function () {
@@ -162,5 +214,3 @@ email.onkeyup = function () {
         mailValidation.style.color = 'red';
     }
 }
-
-
