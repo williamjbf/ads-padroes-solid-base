@@ -176,9 +176,6 @@ document.querySelector('#btnSortear').addEventListener('click', function (e) {
     sorteio()
 })
 
-<<<<<<< HEAD
-//CÓDIGO DE VALIDATIONS DA PAGE DE CADASTRO;
-=======
 function reset (){
     let sbody = document.querySelector('.modal-body-resultado');
     sbody.innerHTML = ``;
@@ -190,8 +187,6 @@ function reset (){
     tbody.innerHTML = ``;
     usuarios = [];
 }
-
->>>>>>> 37425d66c41cc432e82f46591904c9da2c2bbaff
 let nome = document.getElementById('txtNome');
 let nameValidation = document.getElementById('name-validation');
 nome.onkeyup = function () {
@@ -218,8 +213,5 @@ let mailValidation = document.getElementById('mail-validation');email.onkeyup = 
         mailValidation.style.color = 'red';
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 37425d66c41cc432e82f46591904c9da2c2bbaff
+
