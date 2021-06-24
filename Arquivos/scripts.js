@@ -136,21 +136,23 @@ function sorteio() {
 document.querySelector('#btnSortear').addEventListener('click', function (e) {
     sorteio()
 })
+
+//CÓDIGO DE VALIDATIONS DA PAGE DE CADASTRO;
 let nome = document.getElementById('txtNome');
 let nameValidation = document.getElementById('name-validation');
 nome.onkeyup = function () {
+    var nameVal = true;
     if (nome.value.length < 3) {
         nameValidation.innerText = 'Por favor, preencha o campo nome';
         nome.style.border = '';
     }
     else {
         nameValidation.innerText = '';
+        nameVal = false;
     }
 }
 let email = document.getElementById('txtEmail');
-let mailValidation = document.getElementById('mail-validation');
-email.onkeyup = function () {
-
+let mailValidation = document.getElementById('mail-validation');email.onkeyup = function () {
     const regexmail = /\S+@\S+\.\S+/;
     if (regexmail.test(email.value)) {
         mailValidation.innerText = 'Seu email é válido';
@@ -160,7 +162,6 @@ email.onkeyup = function () {
     else {
         mailValidation.innerText = 'Seu email não válido';
         mailValidation.style.color = 'red';
+
     }
 }
-
-
