@@ -4,6 +4,7 @@ function openModal(mn) {
         return;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    mailValidation.innerText = '';
 }
 function closeModal(mn) {
     let modal = document.getElementById(mn);
@@ -21,12 +22,12 @@ if (localStorage.getItem('usuarios')) {
 else {
     usuarios = [];
 }
-function numpar(e){
+function numpar(e) {
     if (e % 2 == 0) {
 
         return true;
-        
-    }else{
+
+    } else {
         return false;
     }
 }
@@ -50,10 +51,10 @@ function Adicionar() {
         nome: document.querySelector('#txtNome').value,
         email: document.querySelector('#txtEmail').value
     }
-    if(document.querySelector('#txtEmail').value == ''|| document.querySelector('#txtNome').value == '') {
+    if (document.querySelector('#txtEmail').value == '' || document.querySelector('#txtNome').value == '') {
         alert('Preencha os campos')
     }
-    else{
+    else {
         usuarios.push(usuario);
         resultSorteio.push(usuario.nome);
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
@@ -142,11 +143,11 @@ function sorteio() {
     let max = usuarios.length
     let sbody = document.querySelector('.modal-body-resultado');
     let slinhas = '';
-    if(max <= 3){
+    if (max <= 3) {
         alert("É necessário adicionar pelo menos 4 pessoas")
         return;
     }
-    else if(max%2 != 0){
+    else if (max % 2 != 0) {
         alert("O numero de candidatos deve ser par")
         return;
     }
@@ -163,8 +164,8 @@ function sorteio() {
         }
     }
     for (let i = 0; i < resultado.length; i++) {
-        if(numpar(i)){
-            slinhas += `<p> ${resultSorteio[resultado[i]]} - ${resultSorteio[resultado[i+1]]}`
+        if (numpar(i)) {
+            slinhas += `<p> ${resultSorteio[resultado[i]]} - ${resultSorteio[resultado[i + 1]]}`
         }
     }
     sbody.innerHTML += slinhas;
@@ -176,7 +177,8 @@ document.querySelector('#btnSortear').addEventListener('click', function (e) {
     sorteio()
 })
 
-function reset (){
+
+function reset() {
     let sbody = document.querySelector('.modal-body-resultado');
     sbody.innerHTML = ``;
     localStorage.clear();
@@ -187,6 +189,7 @@ function reset (){
     tbody.innerHTML = ``;
     usuarios = [];
 }
+var mailValidation = document.getElementById('mail-validation');
 let nome = document.getElementById('txtNome');
 let nameValidation = document.getElementById('name-validation');
 nome.onkeyup = function () {
@@ -201,7 +204,7 @@ nome.onkeyup = function () {
     }
 }
 let email = document.getElementById('txtEmail');
-let mailValidation = document.getElementById('mail-validation');email.onkeyup = function () {
+email.onkeyup = function () {
     const regexmail = /\S+@\S+\.\S+/;
     if (regexmail.test(email.value)) {
         mailValidation.innerText = 'Seu email é válido';
@@ -214,4 +217,3 @@ let mailValidation = document.getElementById('mail-validation');email.onkeyup = 
 
     }
 }
-
