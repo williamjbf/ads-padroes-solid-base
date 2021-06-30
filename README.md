@@ -1,5 +1,5 @@
 # Desafio Loopis
-### Este repositorio foi criado para realização do Desafio Loopis, onde foi proposto um problema como processo avaliativo dos candidatos.
+### Este repositório foi criado para realização do Desafio Loopis, onde foi proposto um problema como processo avaliativo dos candidatos.
 
 ## Problema:
 
