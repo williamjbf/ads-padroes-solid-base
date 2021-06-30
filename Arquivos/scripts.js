@@ -177,6 +177,7 @@ document.querySelector('#btnSortear').addEventListener('click', function (e) {
     sorteio()
 })
 
+
 function reset() {
     let sbody = document.querySelector('.modal-body-resultado');
     sbody.innerHTML = ``;
