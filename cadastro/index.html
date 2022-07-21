@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../CSSreset.css">
-    <link rel="stylesheet" href="Cadastro.css">
-    <link rel="preload" href="Cadastro.css">
+    <link rel="stylesheet" href="style/Cadastro.css">
+    <link rel="preload" href="style/Cadastro.css">
     <title> Amigo Secreto Loopis</title>
 </head>
 
@@ -31,7 +31,7 @@
                 onclick="openModal('cadastrados-modal');">
         </form>
 
-        <img class="image-cadastro" src="imagens/imagem-cadastro.jpg" alt="Pessoas Festejando">
+        <img class="image-cadastro" src="style/imagens/imagem-cadastro.jpg" alt="Pessoas Festejando">
 
     </div>
 
@@ -97,7 +97,19 @@
             </div>
         </div>
     </div>
-    <script src="../scripts.js"></script>
+    <script src="scripts/sorteio.js"></script>
+    <script src="scripts/validacoes.js"></script>
+    <script src="scripts/modalUtils.js"></script>
+    <script src="scripts/crud.js"></script>
+
+<script>
+    window.onload = function setarLocalStorage(){
+        var usuarios = [];
+        if(localStorage.getItem('usuarios') == null){
+            localStorage.setItem('usuarios',JSON.stringify(usuarios))
+        }
+    }
+</script>
 </body>
 
 </html>
